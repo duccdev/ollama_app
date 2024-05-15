@@ -3,13 +3,19 @@ import 'package:ollama_app/constants.dart';
 
 class EzText extends StatelessWidget {
   const EzText(this.content,
-      {super.key, this.fontSize, this.color, this.textAlign, this.bold});
+      {super.key,
+      this.fontSize,
+      this.color,
+      this.textAlign,
+      this.bold,
+      this.semibold});
 
   final String content;
   final Color? color;
   final TextAlign? textAlign;
   final double? fontSize;
   final bool? bold;
+  final bool? semibold;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +25,9 @@ class EzText extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize ?? 24,
         color: color ?? ctp.text,
-        fontWeight: (bold ?? false) ? FontWeight.bold : FontWeight.normal,
+        fontWeight: (bold ?? false)
+            ? FontWeight.w700
+            : ((semibold ?? false) ? FontWeight.w600 : FontWeight.normal),
       ),
     );
   }

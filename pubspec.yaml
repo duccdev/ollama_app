@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   fluttertoast: ^8.2.5
+  heroicons: ^0.10.0
   http: ^1.2.1
   shared_preferences: ^2.2.3
 
@@ -25,3 +26,13 @@ flutter:
 
   assets:
     - assets/
+
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/OpenSans-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/OpenSans-Bold.ttf
+          weight: 700

@@ -8,7 +8,7 @@ class OllamaLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset('assets/logo.png',
+    return Image.asset('assets/images/logo.png',
         width: width ?? 48, height: height ?? 48);
   }
 }
