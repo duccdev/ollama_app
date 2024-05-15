@@ -7,14 +7,21 @@ environment:
   sdk: ">=3.3.4 <4.0.0"
 
 dependencies:
+  catppuccin_flutter: ^1.0.0
   flutter:
     sdk: flutter
+  fluttertoast: ^8.2.5
+  http: ^1.2.1
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/
