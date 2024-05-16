@@ -3,13 +3,25 @@ import 'package:ollama_app/globals.dart';
 import 'package:ollama_app/widgets/icons/arrowup.dart';
 
 typedef OnSubmittedCallback = void Function(String text);
+typedef OnChangedCallback = void Function(String text);
 
 class EzTextField extends StatefulWidget {
-  const EzTextField(
-      {super.key, this.onSubmitted, this.disableSubmitButton, this.hintText});
+  const EzTextField({
+    super.key,
+    this.onSubmitted,
+    this.onChanged,
+    this.disableSubmitButton,
+    this.hintText,
+    this.obscureText,
+    this.defaultValue,
+  });
+
   final OnSubmittedCallback? onSubmitted;
+  final OnChangedCallback? onChanged;
   final bool? disableSubmitButton;
   final String? hintText;
+  final bool? obscureText;
+  final String? defaultValue;
 
   @override
   State<EzTextField> createState() => _EzTextFieldState();
@@ -24,6 +36,7 @@ class _EzTextFieldState extends State<EzTextField> {
     super.initState();
     _controller = TextEditingController();
     _controller.addListener(_onTextChanged);
+    _controller.text = widget.defaultValue ?? '';
   }
 
   @override
@@ -35,6 +48,10 @@ class _EzTextFieldState extends State<EzTextField> {
 
   void _onTextChanged() {
     setState(() {
+      if (widget.onChanged != null) {
+        widget.onChanged!(_controller.text);
+      }
+
       if (_controller.text.trim().isNotEmpty) {
         _sendButtonDisabled = false;
         return;
@@ -93,6 +110,7 @@ class _EzTextFieldState extends State<EzTextField> {
                   ),
                 ),
         ),
+        obscureText: widget.obscureText ?? false,
         cursorColor: Globals.ctp.lavender,
       ),
     );

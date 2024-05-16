@@ -19,12 +19,8 @@ class Entry extends StatelessWidget {
     return MaterialApp(
       title: 'Ollama',
       theme: ThemeData(fontFamily: 'OpenSans'),
-      routes: {
-        '/settings': (context) => const Settings(),
-      },
-      home: const EzScaffold(
-        body: Home(),
-      ),
+      routes: {'/settings': (context) => const Settings()},
+      home: const EzScaffold(body: Home()),
     );
   }
 }

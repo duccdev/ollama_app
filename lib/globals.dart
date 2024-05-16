@@ -3,6 +3,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Globals {
   static Flavor ctp = catppuccin.mocha;
+  static String? model;
+  static String? baseUrl;
+  static String? apiKey;
   static late SharedPreferences prefs;
 
   static Future init() async {
@@ -27,5 +30,9 @@ class Globals {
           break;
       }
     }
+
+    model = prefs.getString('model');
+    baseUrl = prefs.getString('baseUrl');
+    apiKey = prefs.getString('apiKey');
   }
 }
