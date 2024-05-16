@@ -46,9 +46,11 @@ class _SettingsState extends State<Settings> {
           fontSize: 20,
         ),
       ),
-      'testing': CircularProgressIndicator(
-        backgroundColor: Colors.transparent,
-        color: Globals.ctp.blue,
+      'testing': Center(
+        child: CircularProgressIndicator(
+          backgroundColor: Colors.transparent,
+          color: Globals.ctp.blue,
+        ),
       ),
       'failed': const Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -73,7 +75,7 @@ class _SettingsState extends State<Settings> {
         ],
       ),
     };
-    _currentConnectionTestState = 'testing';
+    _currentConnectionTestState = 'notTesting';
   }
 
   @override
