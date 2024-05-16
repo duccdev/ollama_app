@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ollama_app/constants.dart';
+import 'package:ollama_app/globals.dart';
 
 class EzText extends StatelessWidget {
   const EzText(this.content,
@@ -24,7 +24,7 @@ class EzText extends StatelessWidget {
       textAlign: textAlign,
       style: TextStyle(
         fontSize: fontSize ?? 24,
-        color: color ?? ctp.text,
+        color: color ?? Globals.ctp.text,
         fontWeight: (bold ?? false)
             ? FontWeight.w700
             : ((semibold ?? false) ? FontWeight.w600 : FontWeight.normal),

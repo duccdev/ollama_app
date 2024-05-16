@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ollama_app/widgets/ez/ez_text.dart';
+import 'package:ollama_app/globals.dart';
+import 'package:ollama_app/widgets/ez/text.dart';
 import 'package:ollama_app/widgets/icons/bars3.dart';
 import 'package:ollama_app/widgets/icons/cog6tooth.dart';
 import 'package:ollama_app/widgets/icons/ollama_logo.dart';
@@ -19,12 +20,13 @@ class EzAppBarState extends State<EzAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
+      iconTheme: IconThemeData(color: Globals.ctp.text),
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           IconButton(
             onPressed: () {},
-            icon: const Bars3(),
+            icon: Bars3(color: Globals.ctp.text),
           ),
           const Row(children: <Widget>[
             Padding(
@@ -37,7 +39,7 @@ class EzAppBarState extends State<EzAppBar> {
             onPressed: () {
               Navigator.of(context).pushNamed('/settings');
             },
-            icon: const Cog6Tooth(),
+            icon: Cog6Tooth(color: Globals.ctp.text),
           ),
         ],
       ),

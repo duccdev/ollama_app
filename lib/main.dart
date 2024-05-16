@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ollama_app/constants.dart';
 import 'package:ollama_app/routes/home.dart';
 import 'package:ollama_app/routes/settings.dart';
-import 'package:ollama_app/widgets/ez/ez_appbar.dart';
+import 'package:ollama_app/widgets/ez/scaffold.dart';
 
 void main() {
   runApp(const Entry());
@@ -19,10 +18,8 @@ class Entry extends StatelessWidget {
       routes: {
         '/settings': (context) => const Settings(),
       },
-      home: Scaffold(
-        backgroundColor: ctp.base,
-        body: const Padding(padding: EdgeInsets.all(8), child: Home()),
-        appBar: const EzAppBar(),
+      home: const EzScaffold(
+        body: Home(),
       ),
     );
   }

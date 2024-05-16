@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ollama_app/widgets/ez/ez_textfield.dart';
+import 'package:ollama_app/widgets/ez/textfield.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});

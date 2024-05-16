@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ollama_app/constants.dart';
+import 'package:ollama_app/globals.dart';
 import 'package:ollama_app/widgets/icons/arrowup.dart';
 
 typedef OnSubmittedCallback = void Function(String text);
@@ -55,25 +55,30 @@ class _EzTextFieldState extends State<EzTextField> {
       height: 48,
       child: TextField(
         controller: _controller,
-        style: TextStyle(color: ctp.text, fontWeight: FontWeight.w600),
+        style: TextStyle(color: Globals.ctp.text, fontWeight: FontWeight.w600),
         decoration: InputDecoration(
           filled: true,
-          fillColor: ctp.surface2,
+          fillColor: Globals.ctp.surface2,
           border: border,
           focusedBorder: border,
           contentPadding: const EdgeInsets.symmetric(horizontal: 18),
           hintText: 'Message Ollama',
           hintStyle: TextStyle(
-            color: ctp.overlay2,
+            color: Globals.ctp.overlay2,
             fontWeight: FontWeight.w600,
           ),
           suffixIcon: Padding(
             padding: const EdgeInsets.all(4),
             child: IconButton.filled(
-              icon: ArrowUp(color: _sendButtonDisabled ? ctp.text : ctp.base),
+              icon: ArrowUp(
+                  color: _sendButtonDisabled
+                      ? Globals.ctp.text
+                      : Globals.ctp.base),
               style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(
-                  _sendButtonDisabled ? ctp.surface0 : ctp.green,
+                  _sendButtonDisabled
+                      ? Globals.ctp.surface0
+                      : Globals.ctp.green,
                 ),
               ),
               onPressed: _sendButtonDisabled
@@ -82,7 +87,7 @@ class _EzTextFieldState extends State<EzTextField> {
             ),
           ),
         ),
-        cursorColor: ctp.lavender,
+        cursorColor: Globals.ctp.lavender,
       ),
     );
   }
