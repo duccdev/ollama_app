@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ollama_app/widgets/ez/ez_text.dart';
 import 'package:ollama_app/widgets/icons/bars3.dart';
 import 'package:ollama_app/widgets/icons/cog6tooth.dart';
+import 'package:ollama_app/widgets/icons/ollama_logo.dart';
 
 class EzAppBar extends StatefulWidget implements PreferredSizeWidget {
   const EzAppBar({super.key});
@@ -25,7 +26,13 @@ class EzAppBarState extends State<EzAppBar> {
             onPressed: () {},
             icon: const Bars3(),
           ),
-          const EzText('Ollama', color: Colors.white, bold: true, fontSize: 28),
+          const Row(children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 8),
+              child: OllamaLogo(),
+            ),
+            EzText('Ollama', color: Colors.white, bold: true, fontSize: 28),
+          ]),
           IconButton(
             onPressed: () {
               Navigator.of(context).pushNamed('/settings');

@@ -7,9 +7,10 @@ environment:
   sdk: ">=3.3.4 <4.0.0"
 
 dependencies:
-  catppuccin_flutter: ^1.0.0
   flutter:
     sdk: flutter
+
+  catppuccin_flutter: ^1.0.0
   fluttertoast: ^8.2.5
   heroicons: ^0.10.0
   http: ^1.2.1
@@ -25,7 +26,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/
+    - assets/images/
 
   fonts:
     - family: OpenSans
