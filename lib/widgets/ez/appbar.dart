@@ -1,3 +1,4 @@
+import 'package:catppuccin_flutter/catppuccin_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:ollama_app/globals.dart';
 import 'package:ollama_app/widgets/ez/text.dart';
@@ -28,12 +29,17 @@ class EzAppBarState extends State<EzAppBar> {
             onPressed: () {},
             icon: Bars3(color: Globals.ctp.text),
           ),
-          const Row(children: <Widget>[
-            Padding(
+          Row(children: <Widget>[
+            const Padding(
               padding: EdgeInsets.only(right: 8),
               child: OllamaLogo(),
             ),
-            EzText('Ollama', color: Colors.white, bold: true, fontSize: 28),
+            EzText('Ollama',
+                color: Globals.ctp == catppuccin.latte
+                    ? Colors.black
+                    : Colors.white,
+                bold: true,
+                fontSize: 28),
           ]),
           IconButton(
             onPressed: () => Navigator.of(context).pushNamed('/settings'),

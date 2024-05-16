@@ -5,8 +5,11 @@ import 'package:ollama_app/widgets/icons/arrowup.dart';
 typedef OnSubmittedCallback = void Function(String text);
 
 class EzTextField extends StatefulWidget {
-  const EzTextField({super.key, required this.onSubmitted});
-  final OnSubmittedCallback onSubmitted;
+  const EzTextField(
+      {super.key, this.onSubmitted, this.disableSubmitButton, this.hintText});
+  final OnSubmittedCallback? onSubmitted;
+  final bool? disableSubmitButton;
+  final String? hintText;
 
   @override
   State<EzTextField> createState() => _EzTextFieldState();
@@ -62,30 +65,33 @@ class _EzTextFieldState extends State<EzTextField> {
           border: border,
           focusedBorder: border,
           contentPadding: const EdgeInsets.symmetric(horizontal: 18),
-          hintText: 'Message Ollama',
+          hintText: widget.hintText,
           hintStyle: TextStyle(
             color: Globals.ctp.overlay2,
             fontWeight: FontWeight.w600,
           ),
-          suffixIcon: Padding(
-            padding: const EdgeInsets.all(4),
-            child: IconButton.filled(
-              icon: ArrowUp(
-                  color: _sendButtonDisabled
-                      ? Globals.ctp.text
-                      : Globals.ctp.base),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  _sendButtonDisabled
-                      ? Globals.ctp.surface0
-                      : Globals.ctp.green,
+          suffixIcon: (widget.disableSubmitButton ?? false)
+              ? null
+              : Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: IconButton.filled(
+                    icon: ArrowUp(
+                        color: _sendButtonDisabled
+                            ? Globals.ctp.text
+                            : Globals.ctp.base),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                        _sendButtonDisabled
+                            ? Globals.ctp.surface0
+                            : Globals.ctp.green,
+                      ),
+                    ),
+                    onPressed: _sendButtonDisabled
+                        ? null
+                        : () => (widget.onSubmitted ??
+                            (String text) {})(_controller.text),
+                  ),
                 ),
-              ),
-              onPressed: _sendButtonDisabled
-                  ? null
-                  : () => widget.onSubmitted(_controller.text),
-            ),
-          ),
         ),
         cursorColor: Globals.ctp.lavender,
       ),

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ollama_app/globals.dart';
 import 'package:ollama_app/routes/home.dart';
 import 'package:ollama_app/routes/settings.dart';
 import 'package:ollama_app/widgets/ez/scaffold.dart';
+import 'package:ollama_app/widgets/rerender_widget.dart';
 
-void main() {
-  runApp(const Entry());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Globals.init();
+  runApp(const RerenderWidget(child: Entry()));
 }
 
 class Entry extends StatelessWidget {

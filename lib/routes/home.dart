@@ -6,12 +6,12 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return const Expanded(
       child: Align(
         alignment: FractionalOffset.bottomCenter,
         child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: EzTextField(onSubmitted: (message) {}),
+          padding: EdgeInsets.all(8),
+          child: EzTextField(hintText: 'Message Ollama'),
         ),
       ),
     );
