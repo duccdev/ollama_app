@@ -36,9 +36,7 @@ class EzAppBarState extends State<EzAppBar> {
             EzText('Ollama', color: Colors.white, bold: true, fontSize: 28),
           ]),
           IconButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed('/settings');
-            },
+            onPressed: () => Navigator.of(context).pushNamed('/settings'),
             icon: Cog6Tooth(color: Globals.ctp.text),
           ),
         ],
