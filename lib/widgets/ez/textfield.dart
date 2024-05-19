@@ -97,7 +97,7 @@ class _EzTextFieldState extends State<EzTextField> {
                             ? Globals.ctp.text
                             : Globals.ctp.base),
                     style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(
+                      backgroundColor: WidgetStateProperty.all(
                         _sendButtonDisabled
                             ? Globals.ctp.surface0
                             : Globals.ctp.green,

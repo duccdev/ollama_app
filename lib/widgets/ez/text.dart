@@ -21,6 +21,7 @@ class EzText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       content,
+      softWrap: true,
       textAlign: textAlign,
       style: TextStyle(
         fontSize: fontSize ?? 24,
